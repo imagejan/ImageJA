@@ -20,7 +20,7 @@ public class ImageWriter {
 	void write8BitImage(OutputStream out, byte[] pixels)  throws IOException {
 		int bytesWritten = 0;
 		int size = fi.width*fi.height;
-		int count = 8192;
+		int count = 65536;
 		while (bytesWritten<size) {
 			if ((bytesWritten + count)>size)
 				count = size - bytesWritten;
@@ -56,7 +56,7 @@ public class ImageWriter {
 	void write16BitImage(OutputStream out, short[] pixels)  throws IOException {
 		long bytesWritten = 0L;
 		long size = 2L*fi.width*fi.height;
-		int count = 8192;
+		int count = 65536;
 		byte[] buffer = new byte[count];
 
 		while (bytesWritten<size) {
@@ -151,7 +151,7 @@ public class ImageWriter {
 	void writeFloatImage(OutputStream out, float[] pixels)  throws IOException {
 		long bytesWritten = 0L;
 		long size = 4L*fi.width*fi.height;
-		int count = 8192;
+		int count = 65536;
 		byte[] buffer = new byte[count];
 		int tmp;
 
